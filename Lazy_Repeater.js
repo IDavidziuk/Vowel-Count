@@ -5,3 +5,12 @@ function makeLooper(str) {
       return str[i++]
     }
   }
+
+//Reusable memoisation
+function memo(fn) {
+    const cache = new Map();
+    return (x) => {
+      if(!cache.has(x)) cache.set(x, fn(x));
+       return  cache.get(x);
+    }
+  }
